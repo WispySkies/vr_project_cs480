@@ -1,5 +1,4 @@
 using System;
-using JetBrains.Rider.Unity.Editor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -54,7 +53,7 @@ public class ScooterController : MonoBehaviour
     }
 
     private void MoveScooter()
-    {   
+    {
         Quaternion q = Quaternion.Euler(0, playerCamera.eulerAngles.y - 90, 0);
         Vector3 relativeTransform = player.position - scooter.position + new Vector3(0.0f, -0.1f, 0.0f);
 
@@ -65,4 +64,3 @@ public class ScooterController : MonoBehaviour
         handle.rotation = q;
     }
 }
-
