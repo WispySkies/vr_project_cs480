@@ -393,3 +393,19 @@ MonoBehaviour:
   moveProvider: {fileID: 0}
   player: {fileID: 0}
   playerCamera: {fileID: 0}
+  moveInput:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Move Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fe8fc1e8-0c8e-4c32-9e72-714949335c5a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  acceleration: 2
+  deceleration: 3
+  maxSpeed: 10
+  minSpeed: 0
