@@ -2709,6 +2709,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7518127c9500141aca1e466797eed4e8, type: 3}
   m_PrefabInstance: {fileID: 193829664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &194326731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1904408635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &195531040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3283087087830707676, guid: ff89aa9c156d34ef89a3cd1d14d06338, type: 3}
@@ -8832,7 +8837,7 @@ Transform:
   m_GameObject: {fileID: 876855751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.45172, y: -22.693146, z: -106.563}
+  m_LocalPosition: {x: 46.45172, y: -23.915, z: -106.563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19867,7 +19872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002336393}
   - component: {fileID: 2002336392}
-  - component: {fileID: 2002336391}
+  - component: {fileID: 2002336394}
   m_Layer: 0
   m_Name: ClassroomEntry_Trigger
   m_TagString: Untagged
@@ -19875,21 +19880,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2002336391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002336390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846761a5bca9e437883d6218e2a378c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xrInteractionSetup: {fileID: 1227499968}
-  classroomEntryPosition: {fileID: 1716223239}
-  classroomExitPosition: {fileID: 876855752}
 --- !u!65 &2002336392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19926,6 +19916,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 380544011}
   m_LocalEulerAnglesHint: {x: 0, y: 21.155, z: 0}
+--- !u!114 &2002336394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002336390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb04c20d37b9221468ac8281ce73dbf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inClass: 1
+  player: {fileID: 194326731}
 --- !u!1 &2002393217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8453047864924579440, guid: dd0dcc1b67c807b4387949e48d066c17, type: 3}
