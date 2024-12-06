@@ -7,9 +7,9 @@ public class InClass : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool inClass;
-    public GameObject player;
     void Start()
     {
+        GameObject player = GameObject.Find("XR Origin (XR Rig)");
         if (inClass) {
             player.transform.position = GameObject.Find("ClassroomExitPosition").transform.position;
         }
@@ -17,8 +17,7 @@ public class InClass : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the player (or XR setup) collided with the trigger
-        if (other.CompareTag("Player"))  // Assuming you tagged your XR setup as "Player"
+        if (other.CompareTag("Player")) 
         {
             // Load the target scene
             inClass = true;
@@ -28,6 +27,18 @@ public class InClass : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (SceneManager.GetActiveScene().name == "JamesMadisonCity") {
+            GameObject player = GameObject.Find("XR Origin (XR Rig)");
+            if (inClass)
+            {
+                player.transform.position = GameObject.Find("ClassroomExitPosition").transform.position;
+            }
+            inClass = false;
+        }
     }
     // Update is called once per frame
     void Update()
