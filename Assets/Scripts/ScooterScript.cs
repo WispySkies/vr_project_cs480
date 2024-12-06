@@ -27,8 +27,8 @@ public class ScooterController : MonoBehaviour
     public float maxSpeed = 10f; // Maximum movement speed
     public float minSpeed = 0f; // Minimum movement speed (when stopped)
 
-    private float currentSpeed = 1f; // Current movement speed
-    private Vector3 currentVelocity = Vector3.zero; // Current velocity for forward motion
+    public float currentSpeed = 1f; // Current movement speed
+    public Vector3 currentVelocity = Vector3.zero; // Current velocity for forward motion
 
     private bool isGrabbing = false;
     private bool isColliding = false;
@@ -46,7 +46,6 @@ public class ScooterController : MonoBehaviour
         fastEffectMain = fastEffect.GetComponent<ParticleSystem>().main;
         fastEffectEmission = fastEffect.GetComponent<ParticleSystem>().emission;
         fastEffect.gameObject.SetActive(false);
-
     }
 
     private void OnGrab(SelectEnterEventArgs args)
@@ -184,6 +183,7 @@ public class ScooterController : MonoBehaviour
             fastEffectEmission.rateOverTime = 1;
         }
     }
+
     public void OnCollisionEnter(Collision collision)
     {
         isColliding = true;
