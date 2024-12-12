@@ -8,6 +8,7 @@ public class CarCollision : MonoBehaviour
     public RawImage imageToDisplay; // Reference to the RawImage component to display the image
     public Canvas imageCanvas; // Reference to the Canvas displaying the image
     public AudioSource crashAudio; // Reference to the AudioSource for the crash sound
+    public AudioSource crashSound;
     public float restartDelay = 6f; // Delay before restarting the scene
     private bool isTriggered = false; // Ensures the image is shown only once per collision
     public ScooterController controller; // Reference to the scooter controller to check speed
@@ -32,6 +33,7 @@ public class CarCollision : MonoBehaviour
             if (crashAudio != null)
             {
                 crashAudio.Play();
+                crashSound.Play();
             }
 
             // Restart the scene after the delay

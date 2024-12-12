@@ -32,6 +32,14 @@ public class ScooterController : MonoBehaviour
 
     private bool isGrabbing = false;
     private bool isColliding = false;
+    private bool isInputting = false;
+    private bool isPlayingAudio = false;
+    private bool isStoppingSound = false;
+    private bool isContSound = false;
+
+    public AudioSource scooterStart;
+    public AudioSource scooterEnd;
+    public AudioSource scooterCont;
 
     private float rotationSpeed = 150f;
     void Start()
@@ -81,6 +89,7 @@ public class ScooterController : MonoBehaviour
         }
 
         ApplyMovement();
+        PlayAudio();
     }
 
     private void HandleMovementInput()
@@ -105,9 +114,13 @@ public class ScooterController : MonoBehaviour
 
             // Update the current velocity
             currentVelocity = forwardDirection * currentSpeed;
+
+            isInputting = true;
         }
         else if (currentSpeed > 0f) // If no forward input, apply deceleration
         {
+            isInputting = false;
+
             // Smooth deceleration
             if (forwardInput < 0f)
             {
@@ -181,6 +194,40 @@ public class ScooterController : MonoBehaviour
             fastEffect.gameObject.SetActive(false);
             fastEffectMain.startSpeed = 5;
             fastEffectEmission.rateOverTime = 1;
+        }
+    }
+
+    private void PlayAudio()
+    {
+        if (isInputting)
+        {
+            if (!isPlayingAudio)
+            {
+                scooterStart.Play();
+                scooterEnd.Stop();
+                scooterCont.Stop();
+                isPlayingAudio = true;
+
+            } else if (currentSpeed == maxSpeed && !isContSound)
+            {
+                scooterCont.Play();
+                scooterEnd.Stop();
+                scooterStart.Stop();
+                isContSound = true;
+            }
+        } else if (currentSpeed < 5 && isPlayingAudio && !isStoppingSound)
+        {
+            scooterEnd.Play();
+            scooterStart.Stop();
+            scooterCont.Stop();
+            isStoppingSound = true;
+            isContSound = false;
+
+        } else if (currentSpeed == 0)
+        {
+            isPlayingAudio = false;
+            isStoppingSound = false;
+            isContSound = false;
         }
     }
 
